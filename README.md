@@ -146,4 +146,4 @@ Values with * are your own values to be created.
 
 * With help to create the javascript I used materialize. Creating the app.py i Used the Code Instittue mini project and also w3 schools and stackoverflow.
 
-* Creating the allauth accounts verification I used the boutique_ado walk through. 
+* Creating the allauth accounts verification and the base.html main template I used the boutique_ado walk through. 

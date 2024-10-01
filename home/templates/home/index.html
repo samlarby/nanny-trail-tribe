@@ -1,7 +1,21 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-contaier">
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
 {% block content %}
-    <h1 class="display-4 text-success">It Works!</h1>
+    <div class="home-page-image row col-6">
+            <h1 class="col justify-content-center align-self-center cream-text">NTT</h1>
+    </div>
 {% endblock %}

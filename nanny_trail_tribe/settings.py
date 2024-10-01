@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'home',
+    'trails',
 ]
 
 MIDDLEWARE = [

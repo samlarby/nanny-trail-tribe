@@ -15,3 +15,8 @@ body {
 .green-text {
     color: #3b3d30 !important; 
 }
+
+.header-container {
+    position: absolute;
+    z-index: 1;
+}

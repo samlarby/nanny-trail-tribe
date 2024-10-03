@@ -3,7 +3,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8"> 
@@ -15,6 +14,7 @@
    
     {% block corecss %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -35,24 +35,56 @@
     <title>Nanny Trail Tribe {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top">
-        <div class="row justify-content-end">
-            <div class="col-12 col-lg-1 my-auto py-1">
-              <a  class="green-text" href="{% url 'home' %}">Home</a>
-            </div>
-            <div class="col-12 col-lg-1 my-auto py-1">
-              <a class="green-text" href="{% url 'trails' %}">Trails</a>
-            </div>
-            <div class="col-12 col-lg-1 my-auto py-1">
-              <a class="green-text" href="{% url 'home' %}">Shop</a>
-            </div>
-            <div class="col-12 col-lg-1 my-auto py-1">
-              <a class="green-text" href="{% url 'home' %}">The Team</a>
-            </div>
-            <div class="col-12 col-lg-1 my-auto py-1">
-              <a class="green-text" href="{% url 'home' %}">Gallery</a>
-            </div>
+    <header class="container-fluid header-container ">
+      <div class="row justify-content-end">
+        <nav class="navbar navbar-expand-lg">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav list-unstyled">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown"></li>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="user-options">
+                  {% if request.user.is_authenticated %}
+                      {% if request.user.is_superuser %}
+                          <a href="#" class="dropdown-item">Trail Management</a>
+                      {% endif %}
+                      <a href="#" class="dropdown-item">Profile</a>
+                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Trails</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">The Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="row justify-content-end">
+        <div class="dropdown dropleft d-lg-none">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </div>
+      </div>
     </header>
     {% if messages %}
         <div class="message-container">

@@ -3,5 +3,5 @@ from django.urls import path
 from . import views 
 
 urlpatterns = [
-    path('', views.trails, name='trails')
+    path('trails/', views.trails, name='trails')
 ]

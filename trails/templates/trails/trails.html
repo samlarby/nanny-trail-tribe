@@ -16,15 +16,20 @@
 
 
 {% block content %}
+<h2 class="trails-title">The Trails</h2>
 <div class="row row-cols-1 row-cols-md-3 trail-card-container">
+  {% for trail in trails %}
     <div class="col mb-4">
       <div class="card h-100 green-background">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a href="#" class="btn btn-info trail-button">View Details</a>
+          <h5 class="card-title">{{ trail.name }}</h5>
+          {%%}
+          <p class="card-text"><strong>Location:</strong> {{ trail.location }}</p>
+          <p class="card-text"><strong>Difficulty:</strong> {{ trail.difficulty }}</p>
+          <p class="card-text">{{ trail.description }}</p>
         </div>
       </div>
     </div>
+  {% endfor %}
   </div>
 {% endblock %}  

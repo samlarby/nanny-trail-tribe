@@ -9,5 +9,9 @@
     justify-content: center;
 }
 
+.trails-title {
+    display: flex;
+    align-items: center;
+}
 
 

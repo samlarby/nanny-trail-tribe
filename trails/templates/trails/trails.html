@@ -23,8 +23,11 @@
       <div class="card h-100 green-background">
         <div class="card-body">
           <h5 class="card-title">{{ trail.name }}</h5>
-          {%%}
-          <p class="card-text"><strong>Location:</strong> {{ trail.location }}</p>
+          {% if user_subscribed %}
+            <p class="card-text"><strong>Location:</strong> {{ trail.location }}</p>
+          {% else %}
+            <div class="card-text">Subscribe to see the trails location!</div>
+          {% endif %}
           <p class="card-text"><strong>Difficulty:</strong> {{ trail.difficulty }}</p>
           <p class="card-text">{{ trail.description }}</p>
         </div>

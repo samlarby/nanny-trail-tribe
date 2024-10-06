@@ -1,4 +1,13 @@
-.trail-card {
-    margin-bottom: 30px;
-    background-color: #3b3d30 ;
+.trail-card-container {
+    margin: 60px 20px 0 20px;
+    color: white;
 }
+
+.card-title,
+.trail-button {
+    display: flex;
+    justify-content: center;
+}
+
+
+

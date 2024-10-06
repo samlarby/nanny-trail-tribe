@@ -16,62 +16,15 @@
 
 
 {% block content %}
-<div class="container my-5">
-  <div class="row">
-      <!-- Trail Card 1 -->
-      <div class="col-md-4 trail-card">
-          <div class="card">
-              <img src="" class="card-img-top" alt="Trail 1">
-              <div class="card-body">
-                  <h5 class="card-title">Sunset Ridge Trail</h5>
-                  <p class="card-text">Located in the beautiful mountains, Sunset Ridge Trail offers an exciting ride with stunning views. </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Difficulty: Intermediate</li>
-                  <li class="list-group-item">Location: Colorado, USA</li>
-              </ul>
-              <div class="card-body">
-                  <a href="#" class="btn btn-primary">View Details</a>
-              </div>
-          </div>
+<div class="row row-cols-1 row-cols-md-3 trail-card-container">
+    <div class="col mb-4">
+      <div class="card h-100 green-background">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <a href="#" class="btn btn-info trail-button">View Details</a>
+        </div>
       </div>
-
-      <!-- Trail Card 2 -->
-      <div class="col-md-4 trail-card">
-          <div class="card">
-              <img src="" class="card-img-top" alt="Trail 2">
-              <div class="card-body">
-                  <h5 class="card-title">Forest Ridge Trail</h5>
-                  <p class="card-text">This challenging trail takes you through dense forests and offers plenty of technical sections.</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Difficulty: Advanced</li>
-                  <li class="list-group-item">Location: British Columbia, Canada</li>
-              </ul>
-              <div class="card-body">
-                  <a href="#" class="btn btn-primary">View Details</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Trail Card 3 -->
-      <div class="col-md-4 trail-card">
-          <div class="card">
-              <img src="" class="card-img-top" alt="Trail 3">
-              <div class="card-body">
-                  <h5 class="card-title">Green Valley Trail</h5>
-                  <p class="card-text">An easy trail perfect for beginners, with gentle slopes and scenic views of the valley.</p>
-              </div>
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Difficulty: Easy</li>
-                  <li class="list-group-item">Location: California, USA</li>
-              </ul>
-              <div class="card-body">
-                  <a href="#" class="btn btn-primary">View Details</a>
-              </div>
-          </div>
-      </div>
-
-      <!-- Additional cards for more trails can go here -->
+    </div>
   </div>
-{% endblock %}
+{% endblock %}  

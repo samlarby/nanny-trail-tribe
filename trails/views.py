@@ -8,7 +8,13 @@ def trails(request):
     """
     trails = Trail.objects.all()
 
-    return render(request, 'trails/trails.html', {'trails': trails})
+    # check if user is subscribed through the profile app
+    user_is_subscribed = request.user.profile.subscription_active if request.user.is_authenticate else False
+
+    return render(request, 'trails/trails.html', {
+      'trails': trails,
+      'user_is_subscribed': user_is_subscribed,
+    })
 
 
 

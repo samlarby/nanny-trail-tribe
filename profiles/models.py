@@ -10,12 +10,14 @@ class UserProfile(models.Model):
 
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.Charfield(max_length=20, null=True, blank=True)
-    riding_style = models.Charfield(max_length=20, null=True, blank=True)
-    favourite_place_to_ride = models.Charfield(max_length=50, null=True, blank=True)
-    local_trails = models.Charfield(max_length=50, null=True, blank=True)
-    bike = models.Charfield(max_length=50, null=True, blank=True)
-    favourite_conditions = models.Charfield(max_length=20, null=True, blank=True)
+    subscription_active = models.BooleanField(default=False)
+
+    name = models.CharField(max_length=20, null=True, blank=True)
+    riding_style = models.CharField(max_length=20, null=True, blank=True)
+    favourite_place_to_ride = models.CharField(max_length=50, null=True, blank=True)
+    local_trails = models.CharField(max_length=50, null=True, blank=True)
+    bike = models.CharField(max_length=50, null=True, blank=True)
+    favourite_conditions = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
         return self.user.username

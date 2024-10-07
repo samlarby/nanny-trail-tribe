@@ -37,9 +37,19 @@ return redirect('subscription_status')
 
 @login_required
 def unsubscribe(request):
-    user_profile = request.user.profile
-    user_profile.subscription_active = False
-    user_profile.save()
+    user_profile = request.user.UserProfile
+
+    # cancel subscription
+    if user_profile.subscription_active and user_profile.current_subscription:
+        current_order = user_profile.current_subscription
+        current_order.status = 'cancelled'
+        current_order.save()
+
+        # deactivate user current subscription in the users profile
+        user_profile.subscription_active = False
+        user_profile.current_subscription = None
+        user_profile.save()
+
     return redirect('subscription_status')
 
 

@@ -4,9 +4,13 @@
 <div class="container my-5">
     <h1>Subscription Status</h1>
 
-    {% if subscription_active %}
-        <p>You are currently subscribed!</p>
-        <a href="{% url 'unsubscribe' %}" class="btn btn-danger">Unsubscribe</a>
+    {% if subscription_active and current_order %}
+        <h2>Subscription Status</h2>
+        <p><strong>Status:</strong>{{ current_order.status }}</p>
+        <p><strong>Start Date:</strong>{{ current_order.start_date }}</p>
+        <p><strong>End Date:</strong>{{ current_order.end_date }}</p>
+        <p><strong>Amount Paid:</strong>{{ current_order.amount }}</p>
+        <a href="{% url 'unsubscribe' %}" class="btn btn-danger"></a>
     {% else %}
         <p>You are not subscribed.</p>
         <a href="{% url 'subscribe' %}" class="btn btn-success">Subscribe</a>

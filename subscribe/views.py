@@ -55,4 +55,10 @@ def unsubscribe(request):
 
 @login_required
 def subscription_status(request):
-    return render(request, 'subscribe/subscription_status.html')
+    user_profile = request.user.UserProfile
+    current_order = user_profile.current_subscription
+
+    return render(request, 'subscribe/subscription_status.html', {
+        'subscription_active': user_profile.subscription_active,
+        'current_order': current_order,
+    })

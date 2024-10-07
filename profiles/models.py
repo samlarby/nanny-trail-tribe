@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from subscribe.models import SubscriptionOrder
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -11,6 +12,7 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     subscription_active = models.BooleanField(default=False)
+    current_subscription = models.ForeignKey(SubscriptionOrder, null=True, blank=True, on_delete=models.SET_NULL)
 
     name = models.CharField(max_length=20, null=True, blank=True)
     riding_style = models.CharField(max_length=20, null=True, blank=True)
@@ -27,4 +29,4 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """ create or update user profile """
     if created:
         UserProfile.objects.create(user=instance)
-    instance.userprofile.save()
+    # instance.userprofile.save()

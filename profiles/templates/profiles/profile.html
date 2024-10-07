@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Your Profile</h1>
+
+    <!-- User Information -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Your Profile</h5>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Riding Style:</strong> {{ user.username }}</p>
+            <p><strong>Favourite place to ride:</strong> {{ user.username }}</p>
+            <p><strong>Local Trails:</strong> {{ user.username }}</p>
+            <p><strong>Bike:</strong> {{ user.username }}</p>
+            <p><strong>Favourite Conditions</strong> {{ user.username }}</p>
+
+            <!-- Subscription status -->
+            <p>
+                <strong>Subscription Status:</strong> 
+                {% if user.profile.subscription_active %}
+                    <span class="badge bg-success">Active</span>
+                {% else %}
+                    <span class="badge bg-danger">Inactive</span>
+                {% endif %}
+            </p>
+            
+            <!-- Option to subscribe/unsubscribe -->
+            {% if user.profile.subscription_active %}
+                <a href="{% url 'unsubscribe' %}" class="btn btn-danger">Unsubscribe</a>
+            {% else %}
+                <a href="{% url 'subscribe' %}" class="btn btn-success">Subscribe</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Profile Update Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Update Profile</h5>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

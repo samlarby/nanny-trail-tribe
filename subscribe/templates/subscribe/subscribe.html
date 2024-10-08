@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1>Subscribe Now</h1>
+    <p>Enter your details to subscribe to our service.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_full_name" class="form-label">Full Name</label>
+            {{ form.full_name }}
+        </div>
+        <div class="mb-3">
+            <label for="id_email" class="form-label">Email Address</label>
+            {{ form.email }}
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+{% endblock %}
